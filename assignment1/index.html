@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <script>
+   const inventory = {};
+  
+  
+  function addItem(id, name, quantity, price) {
+      if (inventory[id]) {
+          console.log(`Item with ID ${id} already exists.`);
+      } else {
+          inventory[id] = { name, quantity, price };
+          console.log(`Added item with ID ${id}:`, inventory[id]);
+      }
+  }
+  
+ 
+  function updateItem(id, updates) {
+      if (inventory[id]) {
+          Object.assign(inventory[id], updates);
+          console.log(`Updated item with ID ${id}:`, inventory[id]);
+      } else {
+          console.log(`Item with ID ${id} does not exist.`);
+      }
+  }
+  
+ 
+  function removeItem(id) {
+      if (inventory[id]) {
+          delete inventory[id];
+          console.log(`Removed item with ID ${id}.`);
+      } else {
+          console.log(`Item with ID ${id} does not exist.`);
+      }
+  }
+  
+ 
+  function listItems() {
+      console.log('Current inventory:', inventory);
+  }
+  
+
+  addItem(1, 'Laptop', 10, 999.99); 
+  addItem(2, 'Smartphone', 20, 499.99); 
+  listItems(); // List all items
+  
+  updateItem(1, { quantity: 8, price: 949.99 }); 
+  removeItem(2); // Remove an item
+  listItems(); // List all items again
+  
+ </script>
+ 
+</body>
+</html>
