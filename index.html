@@ -1,75 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        class ArrayOperations {
-  constructor() {
-    this.array = [];
-  }
-
-  // Add an element to the array
-  addElement(element) {
-    this.array.push(element);
-  }
-
-  // Sort the array in ascending order
-  sortArray() {
-    this.array.sort((a, b) => a - b);
-  }
-
-  // Remove an element from the array
-  removeElement(element) {
-    const index = this.array.indexOf(element);
-    if (index > -1) {
-      this.array.splice(index, 1);
-    }
-  }
-
-  // Calculate the sum of the elements
-  calculateSum() {
-    return this.array.reduce((sum, current) => sum + current, 0);
-  }
-
-  // Calculate the average of the elements
-  calculateAverage() {
-    if (this.array.length === 0) return 0;
-    return this.calculateSum() / this.array.length;
-  }
-
-  // Display the array and its statistics
-  display() {
-    console.log("Array: ", this.array);
-    console.log("Sum: ", this.calculateSum());
-    console.log("Average: ", this.calculateAverage());
-  }
-}
-
-// Example usage
-const arrayOps = new ArrayOperations();
-
-arrayOps.addElement(5);
-arrayOps.addElement(2);
-arrayOps.addElement(8);
-arrayOps.addElement(1);
-
-console.log("Before sorting:");
-arrayOps.display();
-
-arrayOps.sortArray();
-
-console.log("After sorting:");
-arrayOps.display();
-
-arrayOps.removeElement(2);
-
-console.log("After removing 2:");
-arrayOps.display();
-
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
