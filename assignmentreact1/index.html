@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- react -->
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+     <!-- react-dom -->
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+ 
+     <!-- transpiler  babel-->
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+    *{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+</style>
+
+</head>
+<body>
+    
+    <h1>React Dom Manipulation 4</h1>
+     <h3>Studying USESTATE IN REACT</h3>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const rootElement= document.getElementById("root");
+
+        // function Counter(){
+        //     // usestate gives an array in which first ele is value and second ele is a function to update that value
+
+        //     // const arr= React.useState(0);
+        //     // const value=arr[0];
+        //     // const setValue=arr[1];
+            
+        //     const [value,setValue]= React.useState(0);
+            
+        //     const handleIncrement=()=>{
+        //         // can also add condition
+        //         if(value==10){
+        //             return 
+        //         }
+        //         setValue(value+1);
+        //     }
+        //     const handleDecrement=()=>{
+        //         if(value==-10){
+        //             return
+        //         }
+        //         setValue(value-1);
+        //     }
+        //     return <div>
+        //         <div>{value}</div>
+        //         <button onClick={handleIncrement}>+ Plus</button>
+        //         <button onClick={handleDecrement}>- MINUS</button>
+        //            </div>
+        // }
+
+        function Counter(props){
+            const initialcounter=props.value;
+            
+            const [value,setValue]= React.useState(initialcounter);
+            
+            const handleIncrement=()=>{
+                // can also add condition
+                if(value==10){
+                    return 
+                }
+                setValue(value+1);
+            }
+            const handleDecrement=()=>{
+                if(value==-10){
+                    return
+                }
+                setValue(value-1);
+            }
+            return <div>
+                <div>{value}</div>
+                <button onClick={handleIncrement}>+ Plus</button>
+                <button onClick={handleDecrement}>- MINUS</button>
+                   </div>
+        }
+        function CounterParent(){
+            return <div>
+                <Counter value={1}></Counter>
+                <Counter value={2}></Counter>
+                <Counter value={2}></Counter>
+                   </div>
+        }
+        ReactDOM.render(<CounterParent></CounterParent>,rootElement);
+    </script>
+
+</body>
+</html>
